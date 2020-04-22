@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://CommissionPortalTesting/PremiumTransactionService/" xmlns:s0="http://www.outsystems.com" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://CommissionPortalTesting/PremiumTransactionService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.outsystems.com">
+      <s:element name="StorePdfBonusTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgencyId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="CarrierName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewPdfBonusTransaction" type="s0:PdfBonusTransaction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PdfBonusTransaction">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="AgencyId" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatementGuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatementContractNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StatementDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="DisbursementAmount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="PolicyProducer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProducerContractNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PolicyNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExcessAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaidToBGA" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="StagedDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImportDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="MatchedPolicyNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnappliedAmount" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="StorePdfBonusTransactionResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ProcessTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CarrierName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewPremiumTransaction" type="s0:StagedPremiumTransaction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="StagedPremiumTransaction">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="PolicyNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DueDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExcessAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="StatementDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="StagedDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImportDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="AgentName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatementGuid" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ProcessTransactionResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="StorePdfDeposit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgencyId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewPdfPremiumTransaction" type="s0:PdfPremiumTransaction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PdfPremiumTransaction">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="AgencyId" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatementGuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatementContractNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StatementDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatementProducer" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DisbursementAmount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="PolicyProducer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProducerContractNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PolicyNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExcessAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaidToProducer" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaidToBGA" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="StagedDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImportDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="MatchedPolicyNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EffectiveDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="Insured" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Product" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssueState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaidToDate" type="s:date" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="StorePdfDepositResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="StorePDF">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgencyId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="CarrierName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StatementGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PDFBase64Content" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsBonus" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StorePDFResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ParsedCarrierStatementGuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WipeStagedTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgencyId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="CarrierName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WipeStagedTransactionsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="StorePdfTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AgencyId" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="CarrierName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewPdfPremiumTransaction" type="s0:PdfPremiumTransaction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StorePdfTransactionResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="StorePdfBonusTransactionSoapIn">
+    <wsdl:part name="parameters" element="s0:StorePdfBonusTransaction" />
+  </wsdl:message>
+  <wsdl:message name="StorePdfBonusTransactionSoapOut">
+    <wsdl:part name="parameters" element="s0:StorePdfBonusTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessTransactionSoapIn">
+    <wsdl:part name="parameters" element="s0:ProcessTransaction" />
+  </wsdl:message>
+  <wsdl:message name="ProcessTransactionSoapOut">
+    <wsdl:part name="parameters" element="s0:ProcessTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="StorePdfDepositSoapIn">
+    <wsdl:part name="parameters" element="s0:StorePdfDeposit" />
+  </wsdl:message>
+  <wsdl:message name="StorePdfDepositSoapOut">
+    <wsdl:part name="parameters" element="s0:StorePdfDepositResponse" />
+  </wsdl:message>
+  <wsdl:message name="StorePDFSoapIn">
+    <wsdl:part name="parameters" element="s0:StorePDF" />
+  </wsdl:message>
+  <wsdl:message name="StorePDFSoapOut">
+    <wsdl:part name="parameters" element="s0:StorePDFResponse" />
+  </wsdl:message>
+  <wsdl:message name="WipeStagedTransactionsSoapIn">
+    <wsdl:part name="parameters" element="s0:WipeStagedTransactions" />
+  </wsdl:message>
+  <wsdl:message name="WipeStagedTransactionsSoapOut">
+    <wsdl:part name="parameters" element="s0:WipeStagedTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="StorePdfTransactionSoapIn">
+    <wsdl:part name="parameters" element="s0:StorePdfTransaction" />
+  </wsdl:message>
+  <wsdl:message name="StorePdfTransactionSoapOut">
+    <wsdl:part name="parameters" element="s0:StorePdfTransactionResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PremiumTransactionServiceSoap">
+    <wsdl:operation name="StorePdfBonusTransaction">
+      <wsdl:input message="tns:StorePdfBonusTransactionSoapIn" />
+      <wsdl:output message="tns:StorePdfBonusTransactionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessTransaction">
+      <wsdl:input message="tns:ProcessTransactionSoapIn" />
+      <wsdl:output message="tns:ProcessTransactionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StorePdfDeposit">
+      <wsdl:input message="tns:StorePdfDepositSoapIn" />
+      <wsdl:output message="tns:StorePdfDepositSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StorePDF">
+      <wsdl:input message="tns:StorePDFSoapIn" />
+      <wsdl:output message="tns:StorePDFSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WipeStagedTransactions">
+      <wsdl:input message="tns:WipeStagedTransactionsSoapIn" />
+      <wsdl:output message="tns:WipeStagedTransactionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StorePdfTransaction">
+      <wsdl:input message="tns:StorePdfTransactionSoapIn" />
+      <wsdl:output message="tns:StorePdfTransactionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PremiumTransactionServiceSoap" type="tns:PremiumTransactionServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="StorePdfBonusTransaction">
+      <soap:operation soapAction="http://CommissionPortalTesting/PremiumTransactionService/StorePdfBonusTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessTransaction">
+      <soap:operation soapAction="http://CommissionPortalTesting/PremiumTransactionService/ProcessTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StorePdfDeposit">
+      <soap:operation soapAction="http://CommissionPortalTesting/PremiumTransactionService/StorePdfDeposit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StorePDF">
+      <soap:operation soapAction="http://CommissionPortalTesting/PremiumTransactionService/StorePDF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WipeStagedTransactions">
+      <soap:operation soapAction="http://CommissionPortalTesting/PremiumTransactionService/WipeStagedTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StorePdfTransaction">
+      <soap:operation soapAction="http://CommissionPortalTesting/PremiumTransactionService/StorePdfTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PremiumTransactionServiceSoap12" type="tns:PremiumTransactionServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="StorePdfBonusTransaction">
+      <soap12:operation soapAction="http://CommissionPortalTesting/PremiumTransactionService/StorePdfBonusTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessTransaction">
+      <soap12:operation soapAction="http://CommissionPortalTesting/PremiumTransactionService/ProcessTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StorePdfDeposit">
+      <soap12:operation soapAction="http://CommissionPortalTesting/PremiumTransactionService/StorePdfDeposit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StorePDF">
+      <soap12:operation soapAction="http://CommissionPortalTesting/PremiumTransactionService/StorePDF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WipeStagedTransactions">
+      <soap12:operation soapAction="http://CommissionPortalTesting/PremiumTransactionService/WipeStagedTransactions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StorePdfTransaction">
+      <soap12:operation soapAction="http://CommissionPortalTesting/PremiumTransactionService/StorePdfTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PremiumTransactionService">
+    <wsdl:port name="PremiumTransactionServiceSoap" binding="tns:PremiumTransactionServiceSoap">
+      <soap:address location="http://abbeytechnologies-dev.outsystemsenterprise.com/CommissionPortalTesting/PremiumTransactionService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PremiumTransactionServiceSoap12" binding="tns:PremiumTransactionServiceSoap12">
+      <soap12:address location="http://abbeytechnologies-dev.outsystemsenterprise.com/CommissionPortalTesting/PremiumTransactionService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

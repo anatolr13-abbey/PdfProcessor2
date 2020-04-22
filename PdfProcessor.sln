@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfProcessor", "PdfProcessor\PdfProcessor.csproj", "{DCF4F8CF-B7FF-47F0-AFE8-AB2458BBCCA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abbey.Core", "..\..\Core\Abbey.Core.csproj", "{832DC629-FE86-42B5-BEEB-7B69A296CC66}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCF4F8CF-B7FF-47F0-AFE8-AB2458BBCCA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCF4F8CF-B7FF-47F0-AFE8-AB2458BBCCA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCF4F8CF-B7FF-47F0-AFE8-AB2458BBCCA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCF4F8CF-B7FF-47F0-AFE8-AB2458BBCCA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{832DC629-FE86-42B5-BEEB-7B69A296CC66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{832DC629-FE86-42B5-BEEB-7B69A296CC66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{832DC629-FE86-42B5-BEEB-7B69A296CC66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{832DC629-FE86-42B5-BEEB-7B69A296CC66}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DF59D782-1224-452D-94C7-222234115433}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DCF4F8CF-B7FF-47F0-AFE8-AB2458BBCCA4}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Abbey.PdfProcessor</RootNamespace>
+    <AssemblyName>Abbey.PdfProcessor</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Connected Services\PremiumTransactionService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\StatementTransactionImportService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Mock\MockStatementProcessor.cs" />
+    <Compile Include="RealStatementProcessor\CsvImporter.cs" />
+    <Compile Include="IStatementProcessor.cs" />
+    <Compile Include="ParseOutput.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\AllstatePdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\AmericanGeneralPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\AmericanNationalPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\AssurityPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\AthenePdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\AxaPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\BannerPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\BirghtHousePdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\EquitablePdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\ForestersPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\GenworthPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\GuggenheimPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\HartfordPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\JohnHancockPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\LegacyPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\LincolnPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\MassMutualPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\MetLifePdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\MinnesotaLifePdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\MutualOfOmahaPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\NationalLifePdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\NationwidePdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\NBCPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\NorthAmericanPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\PacificLifePdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\PdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\PennMutualPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\PrincipalPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\ProtectivePdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\PrudentialPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\RelianceStandardPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\SecurityMutualPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\StandardPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\SymetraPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\TranamericaPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\VoyaPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\WilliamPennPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Parsers\ZurichPdfParser.cs" />
+    <Compile Include="RealStatementProcessor\Stubs.cs" />
+    <Compile Include="Service.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Service.Designer.cs">
+      <DependentUpon>Service.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="RealStatementProcessor\StatementProcessor.cs" />
+    <Compile Include="ThreadData.cs" />
+    <Compile Include="Utility\Factory.cs" />
+    <Compile Include="Utility\FileHelper.cs" />
+    <Compile Include="Utility\LogFileWriter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Connected Services\PremiumTransactionService\Abbey.PdfProcessor.PremiumTransactionService.ProcessTransactionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PremiumTransactionService\Abbey.PdfProcessor.PremiumTransactionService.StorePdfBonusTransactionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PremiumTransactionService\Abbey.PdfProcessor.PremiumTransactionService.StorePdfDepositResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PremiumTransactionService\Abbey.PdfProcessor.PremiumTransactionService.StorePDFResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PremiumTransactionService\Abbey.PdfProcessor.PremiumTransactionService.StorePdfTransactionResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PremiumTransactionService\Abbey.PdfProcessor.PremiumTransactionService.WipeStagedTransactionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\PremiumTransactionService\PremiumTransactionService.wsdl" />
+    <None Include="Connected Services\StatementTransactionImportService\Abbey.PdfProcessor.StatementTransactionImportService.ImportResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\StatementTransactionImportService\StatementTransactionImportService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\Abbey.Core.csproj">
+      <Project>{832dc629-fe86-42b5-beeb-7b69a296cc66}</Project>
+      <Name>Abbey.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\PremiumTransactionService\" />
+    <WCFMetadataStorage Include="Connected Services\StatementTransactionImportService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\StatementTransactionImportService\StatementTransactionImportService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\StatementTransactionImportService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\StatementTransactionImportService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\StatementTransactionImportService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PremiumTransactionService\PremiumTransactionService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PremiumTransactionService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PremiumTransactionService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PremiumTransactionService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Service.resx">
+      <DependentUpon>Service.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

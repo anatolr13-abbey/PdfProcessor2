@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://CommissionPortalRepository/StatementTransactionImportService/" xmlns:s0="http://www.outsystems.com" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://CommissionPortalRepository/StatementTransactionImportService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.outsystems.com">
+      <s:element name="Import">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WipeDatabase" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ImportedStatementTransaction" type="s0:ImportedStatementTransaction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ImportedStatementTransaction">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImportDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AgencyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Period" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PolicyNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Insured" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PolicyEffectiveDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="AgentName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CommissionType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PremiumValue" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="SplitPercent" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="RatePercent" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CommissionEarned" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ImportResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ImportSoapIn">
+    <wsdl:part name="parameters" element="s0:Import" />
+  </wsdl:message>
+  <wsdl:message name="ImportSoapOut">
+    <wsdl:part name="parameters" element="s0:ImportResponse" />
+  </wsdl:message>
+  <wsdl:portType name="StatementTransactionImportServiceSoap">
+    <wsdl:operation name="Import">
+      <wsdl:input message="tns:ImportSoapIn" />
+      <wsdl:output message="tns:ImportSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="StatementTransactionImportServiceSoap" type="tns:StatementTransactionImportServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Import">
+      <soap:operation soapAction="http://CommissionPortalRepository/StatementTransactionImportService/Import" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="StatementTransactionImportServiceSoap12" type="tns:StatementTransactionImportServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Import">
+      <soap12:operation soapAction="http://CommissionPortalRepository/StatementTransactionImportService/Import" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StatementTransactionImportService">
+    <wsdl:port name="StatementTransactionImportServiceSoap" binding="tns:StatementTransactionImportServiceSoap">
+      <soap:address location="http://abbeytechnologies-dev.outsystemsenterprise.com/CommissionPortalRepository/StatementTransactionImportService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="StatementTransactionImportServiceSoap12" binding="tns:StatementTransactionImportServiceSoap12">
+      <soap12:address location="http://abbeytechnologies-dev.outsystemsenterprise.com/CommissionPortalRepository/StatementTransactionImportService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

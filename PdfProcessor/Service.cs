@@ -24,6 +24,10 @@ namespace Abbey.PdfProcessor
 
         protected override void OnStart(string[] args)
         {
+            FileHelper.DeleteFile(@"c:\temp\PDFExtract.log");
+            FileHelper.DeleteFile(@"c:\temp\PDFExtract.csv");
+            FileHelper.DeleteFile(@"c:\temp\PDFExtractEmptyFiles.csv");
+
             _timer = new Timer(5000)
             {
                 AutoReset = false
@@ -50,18 +54,18 @@ namespace Abbey.PdfProcessor
                     CsvImporter.WipeStaged();
                 }
 
-                var pdfDirectories = Directory.GetDirectories(@"C:\Users\Duane\OneDrive\Public\CommissionProcessing\Staging\Level3\Imports\2017");
-                ProcessTopLevelDirectories(pdfDirectories);
+                //var pdfDirectories = Directory.GetDirectories(@"C:\Users\Duane\OneDrive\Public\CommissionProcessing\Staging\Level3\Imports\2017");
+                //ProcessTopLevelDirectories(pdfDirectories);
 
-                pdfDirectories = Directory.GetDirectories(Settings.PDFInputFolderPath);
+                var pdfDirectories = Directory.GetDirectories(Settings.PDFInputFolderPath);
                 ProcessDirectories(pdfDirectories);
 
-                var importDirectories = Directory.GetDirectories(Settings.PDFInputFolderPath + @"\Imports\");
-                foreach (var importDirectory in importDirectories)
-                {
-                    pdfDirectories = Directory.GetDirectories(importDirectory);
-                    ProcessDirectories(pdfDirectories);
-                }
+                //var importDirectories = Directory.GetDirectories(Settings.PDFInputFolderPath + @"\Imports\");
+                //foreach (var importDirectory in importDirectories)
+                //{
+                //    pdfDirectories = Directory.GetDirectories(importDirectory);
+                //    ProcessDirectories(pdfDirectories);
+                //}
             }
             catch (Exception exception)
             {
@@ -101,10 +105,10 @@ namespace Abbey.PdfProcessor
             var directoryInfo = new DirectoryInfo(directoryPath);
             var pdfFileInfoList = directoryInfo.GetFiles("*.pdf");
 
-            if (Settings.PdfFileNameContains != "")
-            {
-                pdfFileInfoList = directoryInfo.GetFiles("*" + Settings.PdfFileNameContains + "*.pdf");
-            }
+            //if (Settings.PdfFileNameContains != "")
+            //{
+            //    pdfFileInfoList = directoryInfo.GetFiles("*" + Settings.PdfFileNameContains + "*.pdf");
+            //}
 
             foreach (var fileInfo in pdfFileInfoList)
             {

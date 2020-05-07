@@ -49,23 +49,8 @@ namespace Abbey.PdfProcessor
 
             try
             {
-                if (Settings.WipeDb)
-                {
-                    CsvImporter.WipeStaged();
-                }
-
-                //var pdfDirectories = Directory.GetDirectories(@"C:\Users\Duane\OneDrive\Public\CommissionProcessing\Staging\Level3\Imports\2017");
-                //ProcessTopLevelDirectories(pdfDirectories);
-
                 var pdfDirectories = Directory.GetDirectories(Settings.PDFInputFolderPath);
                 ProcessDirectories(pdfDirectories);
-
-                //var importDirectories = Directory.GetDirectories(Settings.PDFInputFolderPath + @"\Imports\");
-                //foreach (var importDirectory in importDirectories)
-                //{
-                //    pdfDirectories = Directory.GetDirectories(importDirectory);
-                //    ProcessDirectories(pdfDirectories);
-                //}
             }
             catch (Exception exception)
             {
@@ -80,15 +65,6 @@ namespace Abbey.PdfProcessor
                 // Restart timer.
                 _timer.Interval = _timerInterval;
                 _timer.Start();
-            }
-        }
-
-        private static void ProcessTopLevelDirectories(string[] directories)
-        {
-            foreach (var directoryPath in directories)
-            {
-                var pdfDirectories = Directory.GetDirectories(directoryPath);
-                ProcessDirectories(pdfDirectories);
             }
         }
 

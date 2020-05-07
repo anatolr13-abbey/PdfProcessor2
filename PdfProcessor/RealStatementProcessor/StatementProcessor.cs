@@ -55,7 +55,7 @@ namespace Abbey.PdfProcessor.RealStatementProcessor {
                 }
 
                 // Archive CSV File 
-                var archiveFolderPath = Settings.ImportArchvieFolderPath + simpleFileName + "\\";
+                var archiveFolderPath = Settings.ImportArchiveFolderPath + simpleFileName + "\\";
                 FileHelper.WipeDirectory( archiveFolderPath );
                 FileHelper.MoveFile( Settings.CsvOutputFolderPath + parseOutput.CSVFileName, archiveFolderPath + parseOutput.CSVFileName );
             }

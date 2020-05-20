@@ -1,11 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.ServiceProcess;
 using System.Threading;
 using System.Timers;
 
-using Abbey.PdfProcessor.RealStatementProcessor;
 using Abbey.PdfProcessor.Utility;
 
 using Timer = System.Timers.Timer;
@@ -68,7 +68,7 @@ namespace Abbey.PdfProcessor
             }
         }
 
-        private static void ProcessDirectories(string[] directories)
+        private static void ProcessDirectories(IEnumerable<string> directories)
         {
             foreach (var directoryPath in directories)
             {
@@ -102,13 +102,8 @@ namespace Abbey.PdfProcessor
 
         private static void AsyncProcessPdf(object stateInfo)
         {
-            var threadParameters = (ThreadData)stateInfo;
+            var threadParameters = (ThreadData) stateInfo;
 
-            ProcessPdf(threadParameters.FileName, threadParameters.FullyQualifiedName);
-        }
-
-        private static void ProcessPdf(string pdfFileName, string fullyQualifiedPath)
-        {
             try
             {
                 var durationStopWatch = new Stopwatch();
@@ -116,7 +111,7 @@ namespace Abbey.PdfProcessor
                 var startTime = DateTime.Now;
 
                 var statementProcessor = Factory.CreateInstance<IStatementProcessor>(Settings.ClassSpec);
-                var parseOutput = statementProcessor.ProcessPdf(fullyQualifiedPath);
+                var parseOutput = statementProcessor.ProcessPdf(threadParameters.FullyQualifiedName);
 
                 durationStopWatch.Stop();
 
@@ -131,7 +126,7 @@ namespace Abbey.PdfProcessor
             }
             catch (Exception exception)
             {
-                var errorMessage = "Error processing " + pdfFileName;
+                var errorMessage = "Error processing " + threadParameters.FileName;
                 LogFileWriter.WriteErrorLine("------------------------------------------------------------------");
                 LogFileWriter.WriteErrorLine(errorMessage);
                 LogFileWriter.WriteErrorLine(exception.Message);

@@ -7,37 +7,36 @@ using Abbey.PdfProcessor.RealStatementProcessor.Parsers;
 using Abbey.PdfProcessor.Utility;
 
 namespace Abbey.PdfProcessor.RealStatementProcessor {
-    internal class StatementProcessor: IStatementProcessor
+    internal class StatementProcessor : IStatementProcessor
     {
         public ParseOutput ProcessPdf ( string pdfFileName ) {
             try {
-                var parseOutput = ParsePdf( pdfFileName );
-                var storedPdfGuid = ImportPdfData( parseOutput, pdfFileName );
-
-                if (storedPdfGuid != string.Empty) {
-                    parseOutput.DocumentWasStored = true;
-                }
-
-                return parseOutput;
+                return ParseOutput(pdfFileName);
             }
             catch (Exception)
             {
                 try {
                     Thread.Sleep( 5000 );
 
-                    var parseOutput = ParsePdf( pdfFileName );
-                    var storedPdfGuid = ImportPdfData( parseOutput, pdfFileName );
-
-                    if(storedPdfGuid != string.Empty) {
-                        parseOutput.DocumentWasStored = true;
-                    }
-
-                    return parseOutput;
+                    return ParseOutput(pdfFileName);
                 }
                 catch (Exception exception) {
                     throw new ApplicationException( "Error processing " + pdfFileName, exception );
                 }
             }
+        }
+
+        private static ParseOutput ParseOutput(string pdfFileName)
+        {
+            var parseOutput = ParsePdf(pdfFileName);
+            var storedPdfGuid = ImportPdfData(parseOutput, pdfFileName);
+
+            if (storedPdfGuid != string.Empty)
+            {
+                parseOutput.DocumentWasStored = true;
+            }
+
+            return parseOutput;
         }
 
         private static string ImportPdfData ( ParseOutput parseOutput, string pdfFileName ) {
